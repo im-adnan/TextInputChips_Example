@@ -2,23 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class FilterChipDisplay extends StatefulWidget {
+  const FilterChipDisplay({Key? key}) : super(key: key);
+
   @override
-  _FilterChipDisplayState createState() => _FilterChipDisplayState();
+  FilterChipDisplayState createState() => FilterChipDisplayState();
 }
 
-class _FilterChipDisplayState extends State<FilterChipDisplay> {
+class FilterChipDisplayState extends State<FilterChipDisplay> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return new Scaffold(
+    return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            icon: Icon(
-              FontAwesomeIcons.times,
+            icon: const Icon(
+              FontAwesomeIcons.xmark,
               color: Colors.white,
             ),
             onPressed: () {}),
-        title: Text(
+        title: const Text(
           "Filter Result",
           style: TextStyle(
             color: Colors.white,
@@ -26,8 +27,8 @@ class _FilterChipDisplayState extends State<FilterChipDisplay> {
         ),
         actions: <Widget>[
           IconButton(
-              icon: Icon(
-                FontAwesomeIcons.home,
+              icon: const Icon(
+                FontAwesomeIcons.house,
                 color: Colors.white,
               ),
               onPressed: () {
@@ -48,22 +49,22 @@ class _FilterChipDisplayState extends State<FilterChipDisplay> {
             padding: const EdgeInsets.only(left: 8.0),
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Container(
+              child: SizedBox(
                   child: Wrap(
                 spacing: 5.0,
                 runSpacing: 3.0,
-                children: <Widget>[
-                  filterChipWidget(chipName: 'Elevator'),
-                  filterChipWidget(chipName: 'Washer/Dryer'),
-                  filterChipWidget(chipName: 'Fireplace'),
-                  filterChipWidget(chipName: 'Dogs ok'),
-                  filterChipWidget(chipName: 'Cats ok'),
-                  filterChipWidget(chipName: 'Wheelchair access'),
+                children: const <Widget>[
+                  FilterChipWidget(chipName: 'Elevator'),
+                  FilterChipWidget(chipName: 'Washer/Dryer'),
+                  FilterChipWidget(chipName: 'Fireplace'),
+                  FilterChipWidget(chipName: 'Dogs ok'),
+                  FilterChipWidget(chipName: 'Cats ok'),
+                  FilterChipWidget(chipName: 'Wheelchair access'),
                 ],
               )),
             ),
           ),
-          Divider(
+          const Divider(
             color: Colors.blueGrey,
             height: 10.0,
           ),
@@ -78,23 +79,23 @@ class _FilterChipDisplayState extends State<FilterChipDisplay> {
             padding: const EdgeInsets.only(left: 8.0),
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Container(
+              child: SizedBox(
                 child: Wrap(
                   spacing: 5.0,
                   runSpacing: 5.0,
-                  children: <Widget>[
-                    filterChipWidget(chipName: 'Upper Manhattan'),
-                    filterChipWidget(chipName: 'Manhattanville'),
-                    filterChipWidget(chipName: 'Harlem'),
-                    filterChipWidget(chipName: 'Washington Heights'),
-                    filterChipWidget(chipName: 'Inwood'),
-                    filterChipWidget(chipName: 'Morningside Heights'),
+                  children: const <Widget>[
+                    FilterChipWidget(chipName: 'Upper Manhattan'),
+                    FilterChipWidget(chipName: 'Manhattanville'),
+                    FilterChipWidget(chipName: 'Harlem'),
+                    FilterChipWidget(chipName: 'Washington Heights'),
+                    FilterChipWidget(chipName: 'Inwood'),
+                    FilterChipWidget(chipName: 'Morningside Heights'),
                   ],
                 ),
               ),
             ),
           ),
-          Divider(
+          const Divider(
             color: Colors.blueGrey,
             height: 10.0,
           ),
@@ -107,28 +108,28 @@ class _FilterChipDisplayState extends State<FilterChipDisplay> {
 Widget _titleContainer(String myTitle) {
   return Text(
     myTitle,
-    style: TextStyle(
+    style: const TextStyle(
         color: Colors.black, fontSize: 24.0, fontWeight: FontWeight.bold),
   );
 }
 
-class filterChipWidget extends StatefulWidget {
+class FilterChipWidget extends StatefulWidget {
   final String chipName;
 
-  filterChipWidget({Key? key, required this.chipName}) : super(key: key);
+  const FilterChipWidget({Key? key, required this.chipName}) : super(key: key);
 
   @override
-  _filterChipWidgetState createState() => _filterChipWidgetState();
+  FilterChipWidgetState createState() => FilterChipWidgetState();
 }
 
-class _filterChipWidgetState extends State<filterChipWidget> {
+class FilterChipWidgetState extends State<FilterChipWidget> {
   var _isSelected = false;
 
   @override
   Widget build(BuildContext context) {
     return FilterChip(
       label: Text(widget.chipName),
-      labelStyle: TextStyle(
+      labelStyle: const TextStyle(
           color: Color(0xff6200ee),
           fontSize: 16.0,
           fontWeight: FontWeight.bold),
@@ -136,13 +137,13 @@ class _filterChipWidgetState extends State<filterChipWidget> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30.0),
       ),
-      backgroundColor: Color(0xffededed),
+      backgroundColor: const Color(0xffededed),
       onSelected: (isSelected) {
         setState(() {
           _isSelected = isSelected;
         });
       },
-      selectedColor: Color(0xffeadffd),
+      selectedColor: const Color(0xffeadffd),
     );
   }
 }

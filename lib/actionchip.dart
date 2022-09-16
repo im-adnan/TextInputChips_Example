@@ -42,19 +42,19 @@ class ActionChipDisplayState extends State<ActionChipDisplay> {
                           image: NetworkImage(
                               "https://images.unsplash.com/photo-1521782462922-9318be1cfd04?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80")))),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                child: const Text(
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: SizedBox(
+                child: Text(
                   'Welcome Home',
                   style: TextStyle(color: Colors.black, fontSize: 24.0),
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                child: const Text(
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: SizedBox(
+                child: Text(
                   'Monday 18:00 PM, Mostly Sunny',
                   style: TextStyle(color: Colors.blueGrey, fontSize: 20.0),
                 ),
@@ -90,11 +90,11 @@ class ActionChipDisplayState extends State<ActionChipDisplay> {
                             return AlertDialog(
                               title: const Text('Choose the Color'),
                               actions: <Widget>[
-                                FlatButton(
+                                TextButton(
                                   child: Container(
                                     width: 30.0,
                                     height: 30.0,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Colors.red,
                                       shape: BoxShape.circle,
                                     ),
@@ -103,11 +103,11 @@ class ActionChipDisplayState extends State<ActionChipDisplay> {
                                     Navigator.of(context).pop();
                                   },
                                 ),
-                                FlatButton(
+                                TextButton(
                                   child: Container(
                                     width: 30.0,
                                     height: 30.0,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Colors.green,
                                       shape: BoxShape.circle,
                                     ),
@@ -116,11 +116,11 @@ class ActionChipDisplayState extends State<ActionChipDisplay> {
                                     Navigator.of(context).pop();
                                   },
                                 ),
-                                FlatButton(
+                                TextButton(
                                   child: Container(
                                     width: 30.0,
                                     height: 30.0,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Colors.blue,
                                       shape: BoxShape.circle,
                                     ),
