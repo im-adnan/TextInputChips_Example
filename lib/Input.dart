@@ -13,50 +13,12 @@ class InputChipExampleState extends State<InputChipExample> {
 
   List<String> _values = ['mangoes', 'potato', 'rabbit'];
   // List<bool> _selected = [];
+  List<Widget> chips = [];
 
   @override
   void dispose() {
     _textEditingController.dispose();
     super.dispose();
-  }
-
-  Widget buildChips() {
-    List<Widget> chips = [];
-
-    for (int i = 0; i < _values.length; i++) {
-      InputChip actionChip = InputChip(
-        // selected: _selected[i],
-        label: Text(_values[i]),
-        avatar: const FlutterLogo(),
-        elevation: 0,
-        pressElevation: 0,
-        shadowColor: Colors.teal,
-        onPressed: () {
-          setState(() {
-            textInputController = _values[i];
-            // _selected[i] = !_selected[i];
-          });
-          print(textInputController);
-        },
-        onDeleted: () {
-          _values.removeAt(i);
-          // _selected.removeAt(i);
-
-          setState(() {
-            _values = _values;
-            // _selected = _selected;
-          });
-        },
-      );
-
-      chips.add(actionChip);
-    }
-
-    return ListView(
-      // This next line does the trick.
-      scrollDirection: Axis.horizontal,
-      children: chips,
-    );
   }
 
   @override
@@ -90,7 +52,7 @@ class InputChipExampleState extends State<InputChipExample> {
                       backgroundColor: Colors.grey.shade800,
                       // child: Text('City Initial'),
                     ),
-                    label: Text('$textInputController'),
+                    label: Text(textInputController),
                   ),
                 ),
               ),
@@ -102,6 +64,45 @@ class InputChipExampleState extends State<InputChipExample> {
               ),
             ],
           )),
+    );
+  }
+
+  Widget buildChips() {
+    List<Widget> chips = [];
+
+    for (int i = 0; i < _values.length; i++) {
+      InputChip actionChip = InputChip(
+        // selected: _selected[i],
+        label: Text(_values[i]),
+        avatar: const FlutterLogo(),
+        elevation: 0,
+        pressElevation: 0,
+        shadowColor: Colors.teal,
+        onPressed: () {
+          setState(() {
+            textInputController = _values[i];
+            // _selected[i] = !_selected[i];
+          });
+          // print(textInputController);
+        },
+        onDeleted: () {
+          _values.removeAt(i);
+          // _selected.removeAt(i);
+
+          setState(() {
+            _values = _values;
+            // _selected = _selected;
+          });
+        },
+      );
+
+      chips.add(actionChip);
+    }
+
+    return ListView(
+      // This next line does the trick.
+      scrollDirection: Axis.horizontal,
+      children: chips,
     );
   }
 }
