@@ -81,6 +81,15 @@ class InputChipExampleState extends State<InputChipExample> {
                     // _selected = _selected;
                   });
                 },
+                decoration: InputDecoration(
+                  prefix: Chip(
+                    avatar: CircleAvatar(
+                      backgroundColor: Colors.grey.shade800,
+                      // child: Text('City Initial'),
+                    ),
+                    label: Text(_textEditingController.text),
+                  ),
+                ),
               ),
               const SizedBox(height: 10),
               Container(
