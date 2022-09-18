@@ -27,7 +27,7 @@ class InputChipExampleState extends State<InputChipExample> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chips Example Adnan'),
+        title: const Text('InputChips by @ Adnan'),
       ),
       body: Padding(
           padding: const EdgeInsets.all(15.0),
