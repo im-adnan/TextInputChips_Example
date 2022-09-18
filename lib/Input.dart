@@ -10,8 +10,9 @@ class InputChipExample extends StatefulWidget {
 class InputChipExampleState extends State<InputChipExample> {
   final TextEditingController _textEditingController = TextEditingController();
 
-  List<String> _values = ['mangoes', 'potato', 'rabbit'];
+  List<String> _values = [], selected = [];
   // List<bool> _selected = [];
+
   List<Widget> chips = [];
 
   @override
@@ -44,6 +45,40 @@ class InputChipExampleState extends State<InputChipExample> {
                     // _selected = _selected;
                   });
                 },
+                decoration: InputDecoration(
+                  border: const OutlineInputBorder(),
+                  contentPadding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                  // ignore: prefer_is_empty
+                  prefixIcon: selected.length < 1
+                      ? null
+                      : Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Wrap(
+                            spacing: 5,
+                            runSpacing: 5,
+                            children: selected.map(
+                              (s) {
+                                return Chip(
+                                  backgroundColor: Colors.blue[100],
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(7),
+                                  ),
+                                  label: Text(s,
+                                      style:
+                                          TextStyle(color: Colors.blue[900])),
+                                  onDeleted: () {
+                                    setState(
+                                      () {
+                                        selected.remove(s);
+                                      },
+                                    );
+                                  },
+                                );
+                              },
+                            ).toList(),
+                          ),
+                        ),
+                ),
               ),
               const SizedBox(height: 10),
               Container(
@@ -69,9 +104,11 @@ class InputChipExampleState extends State<InputChipExample> {
         shadowColor: Colors.teal,
         onPressed: () {
           setState(() {
-            _textEditingController.text = _values[i];
+            if (!selected.contains(_values[i])) selected.add(_values[i]);
+            // _textEditingController.text = _values[i];
             // _selected[i] = !_selected[i];
           });
+          // print(_textEditingController.text);
         },
         onDeleted: () {
           _values.removeAt(i);
@@ -88,7 +125,7 @@ class InputChipExampleState extends State<InputChipExample> {
     }
 
     return ListView(
-      // This next line does the trick.
+      // This line does the trick.
       scrollDirection: Axis.horizontal,
       children: chips,
     );
