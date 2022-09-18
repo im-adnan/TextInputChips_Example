@@ -9,7 +9,6 @@ class InputChipExample extends StatefulWidget {
 
 class InputChipExampleState extends State<InputChipExample> {
   final TextEditingController _textEditingController = TextEditingController();
-  String textInputController = '';
 
   List<String> _values = ['mangoes', 'potato', 'rabbit'];
   // List<bool> _selected = [];
@@ -44,17 +43,7 @@ class InputChipExampleState extends State<InputChipExample> {
                     _values = _values;
                     // _selected = _selected;
                   });
-                  print(textInputController);
                 },
-                decoration: InputDecoration(
-                  prefix: Chip(
-                    avatar: CircleAvatar(
-                      backgroundColor: Colors.grey.shade800,
-                      // child: Text('City Initial'),
-                    ),
-                    label: Text(textInputController),
-                  ),
-                ),
               ),
               const SizedBox(height: 10),
               Container(
@@ -80,10 +69,9 @@ class InputChipExampleState extends State<InputChipExample> {
         shadowColor: Colors.teal,
         onPressed: () {
           setState(() {
-            textInputController = _values[i];
+            _textEditingController.text = _values[i];
             // _selected[i] = !_selected[i];
           });
-          // print(textInputController);
         },
         onDeleted: () {
           _values.removeAt(i);
