@@ -1,3 +1,4 @@
+import 'package:chips/InputChipExample.dart';
 import 'package:flutter/material.dart';
 import 'filterchip.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       ),
       //home: InputChipDisplay(),//inputChip
       //home: ChoiceChipDisplay(),//choicechip
-      home: const FilterChipDisplay(), //filterchip
+      home: const InputChipExample(), //filterchip
       //home: ActionChipDisplay(),//actionchip
     );
   }

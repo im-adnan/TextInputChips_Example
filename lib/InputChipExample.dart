@@ -27,7 +27,7 @@ class InputChipExampleState extends State<InputChipExample> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Woolha.com Flutter Tutorial'),
+        title: const Text('Chips Example Adnan'),
       ),
       body: Padding(
           padding: const EdgeInsets.all(15.0),
@@ -59,10 +59,14 @@ class InputChipExampleState extends State<InputChipExample> {
                             children: selected.map(
                               (s) {
                                 return Chip(
-                                  backgroundColor: Colors.blue[100],
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(7),
-                                  ),
+                                  avatar: const FlutterLogo(),
+                                  elevation: 0,
+                                  shadowColor: Colors.teal,
+                                  // pressElevation: 0,
+                                  // backgroundColor: Colors.blue[100],
+                                  // shape: RoundedRectangleBorder(
+                                  //   borderRadius: BorderRadius.circular(7),
+                                  // ),
                                   label: Text(s,
                                       style:
                                           TextStyle(color: Colors.blue[900])),
